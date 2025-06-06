@@ -3,25 +3,31 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>ptthhythtty</title>
+ <link rel="stylesheet" href="pel.css">
+ <title>заказ еды</title>
 </head>
 <body>
- <h1>Заказ пельменей</h1>
+ <header class="krisha">Заказ еды</header>
+ <h1>Заказ еды</h1>
  <div class="conteiner">
-<form>
- <input type="text" size="30" value="Введите ваше имя"><br>
- <input type="text" size="30" value="Введите вашу фамилию"><br>
- <input type="text" size="30" value="Введите ваш адрес"><br>
-<p> Ваш пол:</p>
- <input type="radio">М <input type="radio">Ж<br>
+<form id="orderForm">
+ <input class="text" type="text" size="30" placeholder="Введите ваше имя"  id="name" required><br>
+ <input class="text" type="text" size="30" placeholder="Введите вашу фамилию" id="surname" required><br>
+ <input class="text" type="text" size="30" placeholder="Введите ваш адрес" id="address" required><br>
+
  <p>Выберите box</p>
- <select>
-  <option>боx Сушимени</option>
-  <option>box пельмени</option>
-  <option>box макомени</option>
-  <option>box микс</option>
+ <select id="dishSelect" required>
+ 
  </select>
+ <button type="submit">Заказать</button>
 </form>
+<div id="orderSummary"></div>
 </div>
+<script src="pel.js"></script>
+<footer class="simple-footer">
+ &copy; 2025 Ваш сайт. Все права защищены.
+</footer>
 </body>
 </html>
+
+
