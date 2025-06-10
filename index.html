@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="pel.css">
- <title>заказ еды</title>
 </head>
 <body>
  <header class="krisha">Заказ еды</header>
+ 
+ <!-- Page load message container -->
+ <div id="pageLoadMessage" class="page-load-message"></div>
+ 
  <h1>Заказ еды</h1>
+ 
+ <!-- Hover counter display -->
+ <div id="hoverCounter" class="hover-counter">
+   Наведений на кнопку: <span id="hoverCount">0</span>
+ </div>
+ 
  <div class="conteiner">
 <form id="orderForm">
  <input class="text" type="text" size="30" placeholder="Введите ваше имя"  id="name" required><br>
@@ -19,7 +22,7 @@
  <select id="dishSelect" required>
  
  </select>
- <button type="submit">Заказать</button>
+ <button type="submit" id="orderButton">Заказать</button>
 </form>
 <div id="orderSummary"></div>
 </div>
@@ -29,5 +32,3 @@
 </footer>
 </body>
 </html>
-
-
