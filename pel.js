@@ -83,3 +83,14 @@ window.onload = function() {
    `;
  });
 };
+
+
+document.getElementById('orderButton').addEventListener('click', function() {
+  var checkbox = document.getElementById('termsCheckbox');
+  if (checkbox.checked) {
+    // Если согласен, выполнить заказ (например, показать сообщение)
+    document.getElementById('orderSummary').innerText = 'Ваш заказ принят!';
+  } else {
+    alert('Пожалуйста, согласитесь с условиями.');
+  }
+});
