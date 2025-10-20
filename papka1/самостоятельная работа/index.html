@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shopping Cart Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h2 style="text-align:center; margin-top:20px;">Товары</h2>
+<div class="products" id="products-container"></div>
+
+<div class="cart-box" id="cart-box" style="margin-top:40px;">
+  <!-- Здесь будет раздел "Cart items" -->
+</div>
+<script src="data.js"></script>
+<script>
+
+const data = JSON.parse(dataProducts);
+const productsContainer = document.getElementById('products-container');
+const cartBox = document.getElementById('cart-box');
+
+let cartSection = null; // раздел "Cart items"
+
+data.forEach(item => {
+  // Создаем карточку товара
+  const productDiv = document.createElement('div');
+  productDiv.className = 'product-item';
+
+  const img = document.createElement('img');
+  img.src = item.url;
+
+  const title = document.createElement('h3');
+  title.innerText = item.name;
+
+  const price = document.createElement('p');
+  price.className = 'product-price';
+  price.innerText = 'Price: ' + item.price;
+
+  const color = document.createElement('p');
+  color.className = 'product-color';
+  color.innerText = 'Color: ' + item.color;
+
+  const size = document.createElement('p');
+  size.className = 'product-size';
+  size.innerText = 'Size: ' + item.size;
+
+  const btn = document.createElement('button');
+  btn.className = 'add-to-cart';
+  btn.innerText = 'Add to cart';
+
+  // Обработчик добавления в корзину
+  btn.addEventListener('click', () => {
+    // Создаем раздел "Cart items" если нет
+    if (!cartSection) {
+      const title = document.createElement('div');
+      title.className = 'cart-title';
+      title.innerText = 'Cart items';
+
+      const container = document.createElement('div');
+      container.className = 'cart-items';
+
+      cartSection = document.createElement('div');
+      cartSection.appendChild(title);
+      cartSection.appendChild(container);
+      cartBox.appendChild(cartSection);
+    }
+
+    // Создаем товар в корзине
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'item';
+
+    const itemImg = document.createElement('img');
+    itemImg.src = item.url;
+
+    const itemContent = document.createElement('div');
+    itemContent.className = 'item_content';
+
+    const itemTitle = document.createElement('div');
+    itemTitle.className = 'item_heading';
+    itemTitle.innerText = item.name;
+
+    const itemPrice = document.createElement('div');
+    itemPrice.className = 'item_text';
+    itemPrice.innerText = 'Price: ' + item.price;
+
+    const itemColor = document.createElement('div');
+    itemColor.className = 'item_text';
+    itemColor.innerText = 'Color: ' + item.color;
+
+    const itemSize = document.createElement('div');
+    itemSize.className = 'item_text';
+    itemSize.innerText = 'Size: ' + item.size;
+
+    // Кнопка удаления
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'remove-btn';
+    removeBtn.innerHTML = '&times;';
+    removeBtn.title = 'Remove';
+
+    removeBtn.addEventListener('click', () => {
+      itemDiv.remove();
+      const itemsContainer = cartSection.querySelector('.cart-items');
+      if (itemsContainer.children.length === 0) {
+        cartSection.remove();
+        cartSection = null;
+      }
+    });
+
+    // Собираем
+    itemDiv.appendChild(itemImg);
+    itemDiv.appendChild(itemContent);
+    itemContent.appendChild(itemTitle);
+    itemContent.appendChild(itemPrice);
+    itemContent.appendChild(itemColor);
+    itemContent.appendChild(itemSize);
+    itemDiv.appendChild(removeBtn);
+
+    // Добавляем в корзину
+    const container = cartSection.querySelector('.cart-items');
+    container.appendChild(itemDiv);
+  });
+
+  // Добавляем товар на страницу
+  productsContainer.appendChild(productDiv);
+  productDiv.appendChild(img);
+  productDiv.appendChild(title);
+  productDiv.appendChild(price);
+  productDiv.appendChild(color);
+  productDiv.appendChild(size);
+  productDiv.appendChild(btn);
+});
+</script>
+
+</body>
+</html>

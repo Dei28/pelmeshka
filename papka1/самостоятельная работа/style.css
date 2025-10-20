@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  /* Стиль для блока с товарами */
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  /* Карточка товара */
+  .product-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 16px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+
+  .product-item:hover {
+    transform: scale(1.05);
+  }
+
+  .product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .product-item h3 {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #222;
+  }
+
+  .product-price,
+  .product-color,
+  .product-size {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #575757;
+  }
+
+  /* Кнопка "Add to cart" */
+  .add-to-cart {
+    background-color: #EF5B70;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+  }
+
+  .add-to-cart:hover {
+    background-color: #d04b60;
+  }
+
+  /* Раздел корзины */
+  .cart-box {
+    margin: 20px auto;
+    max-width: 700px;
+  }
+
+  /* Заголовок корзины */
+  .cart-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+    text-align: center;
+  }
+
+  /* Контейнер товаров в корзине */
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Товар в корзине */
+  .item {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .item_content {
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .item_heading {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+  }
+
+  .item_text {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #575757;
+  }
+
+  /* Кнопка удалить товар (крестик) */
+  .remove-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+  }
+
+  .remove-btn:hover {
+    color: #EF5B70;
+  }
