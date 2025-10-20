@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cart-box">
+          
+    </div>
+    <script src="./data.js"></script>
+    <script>
+        const data = JSON.parse(dataProducts);
+
+        const cartBox = document.querySelector('.cart-box');
+
+        data.forEach(element => {
+
+            const itemEL = document.createElement('div');
+            itemEL.classList.add('item');
+            
+            const itemImg = document.createElement('img');
+            itemImg.src =  element.url;
+
+            const itemContent = document.createElement('div');
+            itemContent.classList.add('item__content');
+
+            const itemHeading = document.createElement('h3');
+            itemHeading.classList.add('item__heading');
+            itemHeading.textContent = element.name;
+
+            const itemPrice = document.createElement('p');
+            itemPrice.classList.add('item__text');
+            itemPrice.textContent = 'Price';
+
+            const itemSelect = document.createElement('span');
+            itemSelect.classList.add('item__color');
+            itemSelect.textContent = `$ ${element.price}`;
+
+            const itemColor = document.createElement('p');
+            itemColor.classList.add('item__text');
+            itemColor.textContent = `Size ${element.size}`;
+
+            const itemQuantity = document.createElement('p');
+            itemQuantity.classList.add('item__text');
+            itemQuantity.textContent = 'Quantity:';
+
+            const itemInput=document.createElement('input')
+            itemInput.classList.add('item__input')
+            itemInput.setAttribute('value', 1)
+
+            cartBox.appendChild(itemEL);
+            itemEL.appendChild(itemImg);
+            itemEL.appendChild(itemContent);
+            itemContent.appendChild(itemHeading);
+            itemContent.appendChild(itemPrice);
+            itemPrice.appendChild(itemSelect)
+            itemContent.appendChild(itemColor)
+            itemContent.appendChild(itemQuantity)
+            itemQuantity.appendChild(itemInput)
+
+        });
+
+    </script>
+</body>
+</html>
